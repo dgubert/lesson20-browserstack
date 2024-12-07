@@ -2,19 +2,11 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-import java.net.URL;
-
 @Config.Sources({
-        "classpath:android.properties"
+        "file:env.properties",
+        "classpath:${env}.properties"
 })
-
 public interface DriverConfig extends Config {
-
-    @Key("browserstack.user")
-    String bsUser();
-
-    @Key("browserstack.key")
-    String bsKey();
 
     @Key("app")
     String app();
@@ -33,7 +25,4 @@ public interface DriverConfig extends Config {
 
     @Key("name")
     String name();
-
-    @Key("remoteUrl")
-    String remoteUrl();
 }
